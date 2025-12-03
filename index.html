@@ -1,0 +1,530 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <title>FAQ — VanzShop.com</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Pertanyaan yang sering ditanyakan tentang VanzShop.com: cara order, pembayaran, garansi, dan lainnya.">
+  <link rel="icon" href="logo.png">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg:#050509;
+      --card:#111118;
+      --card-soft:#151522;
+      --accent:#f7d46a;
+      --accent-soft:rgba(247,212,106,0.22);
+      --accent-strong:#ffdf7a;
+      --text:#f5f5f5;
+      --text-muted:#b3b3c2;
+      --border-soft:rgba(255,255,255,0.06);
+      --radius-card:32px;
+      --shadow-soft:0 28px 80px rgba(0,0,0,0.9);
+    }
+
+    *,*::before,*::after{box-sizing:border-box;}
+    html,body{margin:0;padding:0;}
+    body{
+      min-height:100vh;
+      font-family:"Inter",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      background:var(--bg);
+      color:var(--text);
+      display:flex;
+      align-items:flex-start;
+      justify-content:center;
+      overflow-x:hidden;
+    }
+
+    /* ===== GLOBAL BG + GLOW + ORBS (sama vibe index) ===== */
+    .page-bg{
+      position:fixed;
+      inset:0;
+      z-index:0;
+      pointer-events:none;
+      background:
+        radial-gradient(circle at 15% 0%, rgba(40,40,90,0.85), transparent 60%),
+        radial-gradient(circle at 50% 120%, rgba(8,8,18,0.9), #050509 70%);
+    }
+    .page-bg::after{
+      content:"";
+      position:absolute;
+      right:-140px;
+      top:-20px;
+      width:420px;
+      height:420px;
+      background:radial-gradient(circle, rgba(247,212,106,0.42) 0%, transparent 60%);
+      filter:blur(6px);
+      opacity:.9;
+      mix-blend-mode:screen;
+    }
+    .orb{
+      position:absolute;
+      border-radius:999px;
+      background:radial-gradient(circle at 30% 20%, rgba(255,255,255,0.06), transparent 65%);
+      opacity:.55;
+      animation:floatOrb 36s ease-in-out infinite alternate;
+    }
+    .orb-1{width:180px;height:180px;left:8%;top:50%;animation-delay:-5s;}
+    .orb-2{width:230px;height:230px;right:10%;top:22%;animation-delay:-18s;}
+    .orb-3{width:160px;height:160px;right:20%;bottom:-40px;animation-delay:-26s;}
+
+    @keyframes floatOrb{
+      0%{transform:translate3d(0,0,0);opacity:.45;}
+      50%{transform:translate3d(18px,-24px,0);opacity:.8;}
+      100%{transform:translate3d(-12px,-6px,0);opacity:.5;}
+    }
+
+    /* ===== LAYOUT ===== */
+    .shell{
+      width:100%;
+      max-width:920px;
+      padding:40px 18px 34px;
+      position:relative;
+      z-index:1;
+    }
+
+    .faq-card{
+      background:radial-gradient(circle at top, rgba(255,255,255,0.03), transparent 55%),var(--card);
+      border-radius:var(--radius-card);
+      padding:26px 26px 24px;
+      border:1px solid var(--border-soft);
+      box-shadow:var(--shadow-soft);
+    }
+
+    /* ===== HEADER: logo + title ===== */
+    .header-top{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      margin-bottom:18px;
+    }
+
+    .logo-wrap{
+      display:flex;
+      align-items:center;
+      gap:14px;
+    }
+    .logo-circle{
+      width:70px;
+      height:70px;
+      border-radius:999px;
+      overflow:hidden;
+      background:radial-gradient(circle at 30% 20%, #fff7c8 0%, #ffe083 35%, #d4a937 70%, #7f6518 100%);
+      border:2px solid rgba(255,220,140,0.6);
+      box-shadow:
+        0 10px 26px rgba(0,0,0,0.85),
+        inset 0 5px 8px rgba(255,255,255,0.22),
+        inset 0 -5px 8px rgba(0,0,0,0.45);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+    .logo-circle img{
+      width:96%;
+      height:96%;
+      object-fit:contain;
+      border-radius:50%;
+    }
+
+    .title-block{
+      display:flex;
+      flex-direction:column;
+      gap:2px;
+    }
+    .title-main{
+      font-size:1.4rem;
+      font-weight:700;
+      margin:0;
+    }
+    .title-tagline{
+      font-size:.86rem;
+      color:var(--text-muted);
+      margin:0;
+    }
+
+    .back-btn{
+      align-self:flex-start;
+      padding:7px 14px;
+      border-radius:999px;
+      background:rgba(97,95,196,0.18);
+      border:1px solid rgba(255,255,255,0.08);
+      color:#f5edff;
+      font-size:.8rem;
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      text-decoration:none;
+      cursor:pointer;
+      white-space:nowrap;
+      transition:background .12s,border-color .12s,transform .1s;
+    }
+    .back-btn:hover{
+      background:rgba(97,95,196,0.3);
+      border-color:rgba(247,212,106,0.7);
+      transform:translateY(-1px);
+    }
+
+    .header-desc{
+      text-align:center;
+      margin-bottom:18px;
+      margin-top:10px;
+    }
+    .header-desc p{
+      margin:0;
+      font-size:.9rem;
+      color:var(--text-muted);
+    }
+
+    .section-title{
+      margin:10px 0 12px;
+      font-size:1.02rem;
+      font-weight:600;
+      text-align:center;
+    }
+    .section-divider{
+      height:1px;
+      width:100%;
+      background:linear-gradient(90deg,transparent,rgba(255,255,255,0.26),transparent);
+      margin-bottom:12px;
+    }
+
+    /* ===== FAQ ACCORDION ===== */
+    .faq-group{
+      margin-bottom:20px;
+    }
+    .faq-item{
+      background:linear-gradient(145deg,var(--card-soft),#10101a);
+      border-radius:18px;
+      margin-bottom:10px;
+      border:1px solid rgba(255,255,255,0.06);
+      overflow:hidden;
+      box-shadow:0 16px 30px rgba(0,0,0,0.65);
+    }
+
+    .faq-question{
+      width:100%;
+      padding:11px 16px;
+      border:none;
+      outline:none;
+      background:transparent;
+      color:var(--text);
+      font-family:inherit;
+      font-size:.92rem;
+      font-weight:500;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      cursor:pointer;
+    }
+    .faq-q-left{
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+    .faq-icon{
+      width:24px;
+      height:24px;
+      border-radius:999px;
+      background:rgba(0,0,0,0.55);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:1rem;
+    }
+    .faq-arrow{
+      font-size:.9rem;
+      color:var(--text-muted);
+      transition:transform .18s ease;
+    }
+
+    .faq-item.active .faq-arrow{
+      transform:rotate(180deg);
+    }
+
+    .faq-answer{
+      max-height:0;
+      overflow:hidden;
+      transition:max-height .2s ease-out;
+      padding:0 16px 0;
+    }
+    .faq-answer-inner{
+      padding-bottom:12px;
+      padding-top:2px;
+      font-size:.86rem;
+      color:var(--text-muted);
+    }
+    .faq-answer-inner p{
+      margin:6px 0;
+    }
+    .faq-answer-inner ul{
+      margin:4px 0 0;
+      padding-left:18px;
+    }
+    .faq-answer-inner li{
+      margin-bottom:4px;
+    }
+
+    .footer-note{
+      margin-top:10px;
+      font-size:.8rem;
+      text-align:center;
+      color:var(--text-muted);
+      opacity:.9;
+    }
+
+    @media (max-width:768px){
+      .faq-card{padding:22px 16px 18px;}
+      .header-top{flex-direction:column-reverse;align-items:flex-start;}
+      .title-block{text-align:left;}
+    }
+  </style>
+</head>
+<body>
+  <div class="page-bg">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+  </div>
+
+  <main class="shell">
+    <section class="faq-card">
+      <div class="header-top">
+        <div class="logo-wrap">
+          <div class="logo-circle">
+            <img src="logo.png" alt="VanzShop.com Logo">
+          </div>
+          <div class="title-block">
+            <h1 class="title-main">FAQ VanzShop.com</h1>
+            <p class="title-tagline">✨ Solusi Produk Digital Terbaik ✨</p>
+          </div>
+        </div>
+
+        <a href="https://vanzshop.com" class="back-btn">
+          <span>←</span>
+          <span>Kembali ke Menu Utama</span>
+        </a>
+      </div>
+
+      <div class="header-desc">
+        <p>Temukan jawaban untuk pertanyaan umum seputar cara order, pembayaran, dan garansi di VanzShop.com.</p>
+      </div>
+
+      <!-- ===== GROUP 1: Tentang VanzShop ===== -->
+      <h2 class="section-title">Tentang VanzShop.com</h2>
+      <div class="section-divider"></div>
+      <div class="faq-group">
+        <div class="faq-item">
+          <button class="faq-question">
+            <div class="faq-q-left">
+              <span class="faq-icon">💡</span>
+              <span>Apa itu VanzShop.com?</span>
+            </div>
+            <span class="faq-arrow">▾</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              <p>VanzShop.com adalah toko digital yang menyediakan berbagai layanan premium seperti ChatGPT, Canva, CapCut, Netflix, Spotify, dan produk digital lainnya dengan harga terjangkau.</p>
+              <p>Semua proses dibuat sesimpel mungkin: pilih produk → bayar → order diproses otomatis/fast respon.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <div class="faq-q-left">
+              <span class="faq-icon">⚡</span>
+              <span>Kenapa harus beli di VanzShop.com?</span>
+            </div>
+            <span class="faq-arrow">▾</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              <ul>
+                <li>Harga bersaing, cocok untuk pengguna pribadi maupun reseller.</li>
+                <li>Proses cepat, banyak produk yang aktif secara otomatis setelah pembayaran.</li>
+                <li>Garansi jelas sesuai ketentuan tiap produk.</li>
+                <li>Support ramah via WhatsApp & Telegram.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <div class="faq-q-left">
+              <span class="faq-icon">🔒</span>
+              <span>Apakah VanzShop.com aman dan terpercaya?</span>
+            </div>
+            <span class="faq-arrow">▾</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              <p>InsyaAllah aman. Akun dan layanan yang dijual mengikuti ketentuan platform masing-masing. Data pelanggan hanya digunakan untuk keperluan aktivasi dan tidak dijual ke pihak lain.</p>
+              <p>Selama mengikuti aturan penggunaan yang sudah dijelaskan di halaman <strong>Ketentuan Garansi</strong>, pesanan kamu akan tetap terlindungi.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== GROUP 2: Pemesanan & Pembayaran ===== -->
+      <h2 class="section-title">Pemesanan & Pembayaran</h2>
+      <div class="section-divider"></div>
+      <div class="faq-group">
+        <div class="faq-item">
+          <button class="faq-question">
+            <div class="faq-q-left">
+              <span class="faq-icon">🛒</span>
+              <span>Bagaimana cara order di VanzShop.com?</span>
+            </div>
+            <span class="faq-arrow">▾</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              <ul>
+                <li>Buka halaman utama VanzShop.com.</li>
+                <li>Pilih tombol <strong>Order Sekarang (24/7)</strong> lalu pilih via Bot Telegram atau Webstore.</li>
+                <li>Pilih produk, isi data yang diminta, lalu lanjut ke pembayaran.</li>
+                <li>Setelah pembayaran terkonfirmasi, sistem/admin akan memproses pesanan kamu.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <div class="faq-q-left">
+              <span class="faq-icon">💳</span>
+              <span>Metode pembayaran apa saja yang tersedia?</span>
+            </div>
+            <span class="faq-arrow">▾</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              <p>Metode pembayaran bisa berbeda tergantung channel order, namun umumnya tersedia:</p>
+              <ul>
+                <li>Transfer bank & virtual account.</li>
+                <li>QRIS (semua e-wallet + mobile banking).</li>
+                <li>E-wallet tertentu (jika sedang aktif promo).</li>
+              </ul>
+              <p>Detail metode pembayaran akan muncul otomatis di halaman checkout atau di bot saat kamu melakukan order.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <div class="faq-q-left">
+              <span class="faq-icon">⏱️</span>
+              <span>Berapa lama pesanan saya diproses?</span>
+            </div>
+            <span class="faq-arrow">▾</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              <p>Untuk produk otomatis (auto order), pesanan biasanya diproses dalam hitungan detik–menit setelah pembayaran terdeteksi.</p>
+              <p>Untuk produk manual, estimasi proses bisa 5–30 menit pada jam kerja. Jika ada kendala, kamu bisa langsung chat admin via WhatsApp.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== GROUP 3: Garansi & After-Sales ===== -->
+      <h2 class="section-title">Garansi & After-Sales</h2>
+      <div class="section-divider"></div>
+      <div class="faq-group">
+        <div class="faq-item">
+          <button class="faq-question">
+            <div class="faq-q-left">
+              <span class="faq-icon">🛡️</span>
+              <span>Apakah semua produk bergaransi?</span>
+            </div>
+            <span class="faq-arrow">▾</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              <p>Sebagian besar produk di VanzShop.com sudah termasuk garansi, namun masa dan jenis garansi berbeda-beda.</p>
+              <p>Kamu bisa cek detail lengkap di halaman <strong>Ketentuan Garansi</strong> dan pilih produk yang ingin kamu lihat aturannya.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <div class="faq-q-left">
+              <span class="faq-icon">📩</span>
+              <span>Bagaimana jika akun saya tiba-tiba tidak bisa login?</span>
+            </div>
+            <span class="faq-arrow">▾</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              <p>Jangan panik. Screenshot pesan error, lalu hubungi admin melalui WhatsApp atau Telegram dengan menyertakan:</p>
+              <ul>
+                <li>Nomor invoice / bukti pembayaran.</li>
+                <li>Jenis produk yang bermasalah.</li>
+                <li>Deskripsi singkat kendalanya.</li>
+              </ul>
+              <p>Selama masih dalam masa garansi dan mengikuti ketentuan, kami akan bantu cek dan perbaikan/ganti akses.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <div class="faq-q-left">
+              <span class="faq-icon">⚠️</span>
+              <span>Kapan garansi bisa hangus?</span>
+            </div>
+            <span class="faq-arrow">▾</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              <p>Beberapa contoh kondisi yang bisa menghanguskan garansi:</p>
+              <ul>
+                <li>Mengubah email / password / security akun tanpa izin admin.</li>
+                <li>Membagikan akun ke publik atau dijual kembali tanpa perjanjian.</li>
+                <li>Menggunakan akun untuk spam, phising, atau aktivitas melanggar ToS platform.</li>
+                <li>Melebihi batas pemakaian device yang sudah ditentukan.</li>
+              </ul>
+              <p>Selalu baca ketentuan produk sebelum membeli agar garansi tetap aman.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p class="footer-note">
+        Masih ada pertanyaan lain? Kamu bisa langsung hubungi admin melalui WhatsApp atau Telegram yang tertera di halaman utama VanzShop.com.
+      </p>
+    </section>
+  </main>
+
+  <script>
+    // Simple accordion
+    const items = document.querySelectorAll('.faq-item');
+
+    items.forEach(item => {
+      const btn = item.querySelector('.faq-question');
+      const panel = item.querySelector('.faq-answer');
+
+      btn.addEventListener('click', () => {
+        const isActive = item.classList.contains('active');
+
+        // tutup semua
+        items.forEach(i => {
+          i.classList.remove('active');
+          const p = i.querySelector('.faq-answer');
+          p.style.maxHeight = null;
+        });
+
+        // buka yg diklik jika sebelumnya tidak aktif
+        if (!isActive) {
+          item.classList.add('active');
+          panel.style.maxHeight = panel.scrollHeight + 'px';
+        }
+      });
+    });
+  </script>
+</body>
+</html>
