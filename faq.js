@@ -15,50 +15,78 @@
      sparkles  bulb     bolt     shield   shield-check  lock    key
      cart      bag      card     wallet   receipt       clock   mail
      alert     help     chat     headset  rocket        gift    user
-     refresh   box      star     globe    tag           check   link
-     heart     phone    download  device
+     users     refresh  box      star     globe         tag     check
+     crown     trending percent
    (Kalau kosong / salah tulis, otomatis pakai ikon "help")
 
    FORMAT TEKS DI JAWABAN:
      **tebal**                  → teks tebal
      [teks link](https://...)   → link
-     {wa}                       → otomatis jadi link WhatsApp admin
-     {telegram}                 → otomatis jadi link Telegram admin
-     {garansi}                  → otomatis jadi link halaman Ketentuan Garansi
+     {wa}                       → link WhatsApp admin
+     {telegram}                 → link Telegram admin
+     {garansi}                  → link halaman Ketentuan Garansi
+     {reseller}                 → link WA "join reseller"
+     {order}                    → link halaman order
 
    ATURAN:
    • Baris kosong bebas, gak ngaruh.
    • Baris diawali "# " (pagar + spasi) = komentar.
-   • Link tiap pertanyaan otomatis, misal: faq.html#kapan-garansi-bisa-hangus
    • JANGAN pakai tanda backtick ( ` ) di teks.
    ===================================================================== */
 
 window.VANZ_FAQ_CONFIG = {
   namaToko: "VanzShop.com",
-  tagline: "Solusi Produk Digital Terbaik",
+  tagline: "Pusat App Premium Termurah",
 
   linkHome: "https://vanzshop.com",
   linkGaransi: "https://ketentuan-garansi.vanzshop.com",
   linkOrder: "https://direct-order.vanzshop.com",
 
-  // Nomor WA admin format 62xxxx. Kosongkan "" kalau gak dipakai.
   whatsapp: "62895415204928",
   pesanWA: "Halo admin VanzShop, saya mau tanya: ",
-
-  // Username Telegram tanpa @. Kosongkan "" kalau gak dipakai.
   telegram: "VanzzSkyyID",
-
-  // Jam operasional admin (tampil di kotak kontak)
   jamOperasional: "Admin online setiap hari",
 
   // Tombol cepat di bawah kolom search
-  pencarianPopuler: ["Garansi", "Pembayaran", "Login", "Cara order"],
+  pencarianPopuler: ["Reseller", "Garansi", "Pembayaran", "Cara order"],
 
-  // 3 kartu keunggulan di bawah hero (ikon pakai nama dari daftar di atas)
+  // ---------- BANNER "PUSAT APP PREMIUM TERMURAH" ----------
+  banner: {
+    label: "Pusat App Premium",
+    judul: "App Premium Termurah,",
+    judulSorot: "Resmi & Bergaransi",
+    teks: "Semua aplikasi premium favoritmu ada di satu tempat — harga paling bersahabat, proses cepat, dan bergaransi.",
+    // angka ringkas di bawah banner
+    statistik: [
+      { angka: "30+", label: "App premium" },
+      { angka: "24/7", label: "Order otomatis" },
+      { angka: "100%", label: "Bergaransi" }
+    ],
+    // nama app yang jalan di banner
+    produk: ["ChatGPT", "Canva", "CapCut", "Spotify", "YouTube Premium", "Alight Motion", "Apple Music", "Claude AI",
+             "Gemini AI", "Microsoft 365", "Duolingo", "HBO Max", "Prime Video", "Zoom", "Perplexity AI", "Discord Nitro", "VPN", "Scribd"]
+  },
+
+  // ---------- PROGRAM RESELLER ----------
+  reseller: {
+    label: "Program Reseller",
+    judul: "Join Reseller Sekarang",
+    teks: "Dapatkan harga lebih murah dan jual lagi dengan untung kamu sendiri.",
+    keuntungan: [
+      "Harga khusus reseller, lebih murah dari harga biasa",
+      "Bebas jual lagi dengan harga kamu sendiri",
+      "Info stok & produk baru lebih dulu",
+      "Dibantu admin sampai lancar jualan"
+    ],
+    tombol: "Join Reseller via WhatsApp",
+    pesanWA: "Halo admin VanzShop, saya mau join reseller. Boleh minta info harga & caranya?"
+  },
+
+  // 3 kartu keunggulan (ikon pakai nama dari daftar di atas)
   keunggulan: [
+    { ikon: "tag",          judul: "Harga Termurah", teks: "Harga app premium paling bersahabat di kantong." },
     { ikon: "bolt",         judul: "Proses Cepat",   teks: "Banyak produk aktif otomatis setelah bayar." },
-    { ikon: "shield-check", judul: "Garansi Jelas",  teks: "Aturan garansi terbuka untuk tiap produk." },
-    { ikon: "headset",      judul: "Support Ramah",  teks: "Admin siap bantu via WhatsApp & Telegram." }
+    { ikon: "shield-check", judul: "Garansi Jelas",  teks: "Aturan garansi terbuka untuk tiap produk." }
   ]
 };
 
@@ -68,11 +96,11 @@ window.VANZ_FAQ = `
 ## Tentang VanzShop.com | sparkles
 
 ? Apa itu VanzShop.com? | bulb
-VanzShop.com adalah toko digital yang menyediakan berbagai layanan premium seperti ChatGPT, Canva, CapCut, Spotify, YouTube Premium, dan produk digital lainnya dengan harga terjangkau.
+VanzShop.com adalah **pusat aplikasi premium termurah** — ChatGPT, Canva, CapCut, Spotify, YouTube Premium, dan 30+ aplikasi premium lainnya ada di satu tempat.
 Semua proses dibuat sesimpel mungkin: **pilih produk → bayar → pesanan diproses** otomatis atau fast respon.
 
 ? Kenapa harus beli di VanzShop.com? | star
-- **Harga bersaing**, cocok untuk pengguna pribadi maupun reseller.
+- **Harga termurah**, cocok untuk pengguna pribadi maupun reseller.
 - **Proses cepat**, banyak produk aktif otomatis setelah pembayaran.
 - **Garansi jelas** sesuai ketentuan tiap produk.
 - **Support ramah** via WhatsApp & Telegram.
@@ -82,11 +110,29 @@ InsyaAllah aman. Akun dan layanan yang dijual mengikuti ketentuan platform masin
 Selama mengikuti aturan penggunaan di halaman {garansi}, pesanan kamu tetap terlindungi.
 
 
+## Reseller | crown
+
+? Apa itu program reseller VanzShop? | crown
+Program reseller memberi kamu **harga khusus yang lebih murah** untuk semua aplikasi premium, jadi kamu bisa menjualnya lagi dengan harga kamu sendiri.
+
+? Apa keuntungan jadi reseller? | trending
+- **Harga lebih murah** dari harga biasa.
+- **Bebas atur harga jual** dan ambil untung sendiri.
+- **Info stok & produk baru** lebih dulu.
+- Dibantu admin sampai lancar jualan.
+
+? Bagaimana cara join reseller? | users
+1. Klik tombol {reseller}.
+2. Kirim pesan ke admin untuk minta info harga & syarat reseller.
+3. Ikuti arahan admin untuk aktivasi akun reseller.
+4. Mulai order dengan harga reseller dan jual lagi.
+
+
 ## Pemesanan & Pembayaran | cart
 
 ? Bagaimana cara order di VanzShop.com? | bag
-1. Buka halaman utama VanzShop.com.
-2. Pilih tombol **Order Sekarang (24/7)**, lalu pilih via Bot Telegram atau Webstore.
+1. Buka halaman {order}.
+2. Pilih order via **Bot Telegram**, **Bot WhatsApp**, atau **Webstore**.
 3. Pilih produk, isi data yang diminta, lalu lanjut ke pembayaran.
 4. Setelah pembayaran terkonfirmasi, sistem/admin akan memproses pesanan kamu.
 
